@@ -1,4 +1,5 @@
 node_modules
 .vscode
+dev.js
 
 # mongodb+srv://dy:ghdrbdid77@cluster0.6ezud.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
