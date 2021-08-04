@@ -6,3 +6,6 @@ dev.js
 #git remote add origin https://github.com/globalq64/gitTest.git
 #git branch -M main
 #git push -u origin main
+
+#
+#module.exports = {mongoURI: 'mongodb+srv://dy:ghdrbdid77@cluster0.6ezud.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',}
