@@ -36,7 +36,7 @@ app.post("/api/users/register", (req, res) => {
     user.save((err, userInfo) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({
-            success: true,
+            registerSuccess: true,
         });
     });
 });
@@ -44,7 +44,7 @@ app.post("/api/users/register", (req, res) => {
 app.post("/api/users/login", (req, res) => {
     //요청된 이메일을 db에서 찾는다
     User.findOne({ email: req.body.email }, (err, user) => {
-        console.log("1111111111111")
+        console.log("1111111111111");
 
         if (!user) {
             return res.json({
@@ -75,8 +75,8 @@ app.post("/api/users/login", (req, res) => {
 });
 
 //auth통과완료되면 authentication=true의미. req에는 token, user정보가 포함된다.
-app.get("api/users/auth", auth, (req, res) => {
-    console.log("////////++++++++")
+app.get("/api/users/auth", auth, (req, res) => {
+    console.log("////////++++++++");
 
     res.status(200).json({
         _id: req.user._id,
@@ -90,9 +90,10 @@ app.get("api/users/auth", auth, (req, res) => {
 });
 
 app.get("/api/users/logout", auth, (req, res) => {
-    console.log("////////")
+    console.log("////////");
     User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
         if (err) return res.json({ success: false, err });
+        console.log("XXXXXXXXXXXXX", user);
         return res.status(200).send({ success: true });
     });
 });
